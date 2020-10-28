@@ -6,10 +6,10 @@
 
 int main() {
     int *numeros        = NULL,
-            *mais_numeros   = NULL;
+        *mais_numeros   = NULL;
     int contador        = 0,
-            entrada,
-            ordenar, ordenar_aux;
+        entrada,
+        ordenar, ordenar_aux;
 
     printf("0 - Sair\n");
     do {
