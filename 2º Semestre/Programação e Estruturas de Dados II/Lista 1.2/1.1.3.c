@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-int recursao_perfeito() {
+int recursao_quadrado_perfeito() {
     float numero;
     double quadrado;
 
@@ -23,10 +23,10 @@ int recursao_perfeito() {
         printf("%.1f e um quadrado perfeito\n", numero);
     else
         printf("%.1f nao e um quadrado perfeito\n", numero);
-    return recursao_perfeito();
+    return recursao_quadrado_perfeito();
 }
 
 int main() {
-    recursao_perfeito();
+    recursao_quadrado_perfeito();
     system("pause");
 }
