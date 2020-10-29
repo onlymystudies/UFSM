@@ -19,6 +19,7 @@ int recursao_primo() {
 
     printf("Numero:\n");
     scanf("%d", &numero);
+    if (numero == 0) return 0;
     for (int i = 2; i <= numero / 2; ++i) {
         if (numero % i == 0) {
             resultado++;
@@ -28,6 +29,5 @@ int recursao_primo() {
 
     if (resultado > 0) printf("%d nao e um numero primo\n", numero);
     else printf("%d e um numero primo\n", numero);
-    if (numero == 0) return 0;
-    else return recursao_primo();
+    return recursao_primo();
 }
