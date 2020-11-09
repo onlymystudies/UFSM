@@ -119,16 +119,19 @@ int igual (Lista* l1, Lista* l2) {
         return 0;
     if ((*l1) == NULL || (*l2) == NULL)
         return 0;
-    int igual = 0, nao_igual = 0;
     struct valores dados1, dados2;
-    for (int i = 1; i < tamanho_lista(l1); ++i) {
+    if (i < tamanho_lista(l1)) {
         consulta_lista(l1, i, &dados1);
         consulta_lista(l2, i, &dados2);
         if (dados1.numeros == dados2.numeros)
-            igual++;
+            igual_++;
         else
             nao_igual++;
+        i++;
+        igual(l1, l2);
     }
+
+    i = 0;
     if (nao_igual != 0)
         printf("Listas nao sao igual\n");
     else
@@ -144,9 +147,14 @@ Lista* copia (Lista* l) {
     Lista *l2;
     l2 = cria_lista();
     struct valores dados;
-    for (int i = 1; i < tamanho_lista(l) + 1; ++i) {
+
+    if (i < tamanho_lista(l)) {
         consulta_lista(l, i, &dados);
         insere_lista_ordenada(l2, dados);
+        i++;
+        copia(l);
     }
+
+    i = 0;
     return l2;
 }

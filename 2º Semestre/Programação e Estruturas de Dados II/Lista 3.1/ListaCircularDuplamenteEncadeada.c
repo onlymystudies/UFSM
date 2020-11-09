@@ -103,3 +103,9 @@ void remove_lista(Lista_c *list_c, int valor) {
         }
     }
 }
+
+void insere_ordenado(Lista_c *list_c, int valor) {
+    if (!lista_vazia(Lista_c)) {
+        if (valor > )
+    }
+}

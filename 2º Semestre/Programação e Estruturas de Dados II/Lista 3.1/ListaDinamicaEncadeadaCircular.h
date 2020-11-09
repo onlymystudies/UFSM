@@ -1,3 +1,5 @@
+int igual_ = 0, nao_igual = 0, i = 0;
+
 struct valores {
     int numeros;
 };
