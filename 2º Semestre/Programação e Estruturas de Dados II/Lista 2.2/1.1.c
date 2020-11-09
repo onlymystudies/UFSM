@@ -1,6 +1,6 @@
 /* Problema 1
- * Leia uma palavra e verifique se é um palíndromo, isto é, se sua leitura,
- * a partir de qualquer direção, sempre apresenta a mesma sequência.
+ * Leia uma palavra e verifique se ï¿½ um palï¿½ndromo, isto ï¿½, se sua leitura,
+ * a partir de qualquer direï¿½ï¿½o, sempre apresenta a mesma sequï¿½ncia.
  */
 #include <stdio.h>
 #include <stdlib.h>
