@@ -1,3 +1,7 @@
+/*Problema 2
+ * Escrever uma função que receba como parâmetro uma pilha. A função deve retornar o maior elemento da
+ * pilha. A passagem deve ser por valor ou referência?
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX 10
