@@ -60,7 +60,7 @@ void imprime(Lista *lista) {
     }
 }
 
-void insereCidade(Lista *lista, char *rodovia, char *cidade) {
+void insereCidadeOrdem(Lista *lista, char *rodovia, char *cidade) {
     for (size_t i = 1; i <= lista->final; ++i) {
         if (strcmp(lista->rodovias[i].rodovia, rodovia) == 0) {
             lista->rodovias[i].proximo++;
@@ -90,6 +90,24 @@ Lista *rodoviasCidade(Lista *lista, char *cidade) {
     return listaRodovias;
 }
 
+int cruzamento(Lista *lista, char *rodovia1, char *rodovia2) {
+    for (size_t i = 1; i <= lista->final; ++i) {
+        if (strcmp(lista->rodovias[i].rodovia, rodovia1) == 0) {
+            for (size_t j = 1; j <= lista->final; ++j) {
+                if (strcmp(lista->rodovias[j].rodovia, rodovia2) == 0) {
+                    for (size_t y = 1; y <= lista->rodovias[i].proximo; ++y) {
+                        for (size_t l = 1; l <= lista->rodovias[j].proximo; ++l) {
+                            if (strcmp(lista->rodovias[i].cidades[y].cidade, lista->rodovias[j].cidades[l].cidade) == 0)
+                                return 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return 0;
+}
+
 int main(void) {
     Lista *lista = cria();
     insereRodovias(lista, "BR123");
@@ -98,16 +116,22 @@ int main(void) {
     insereCidades(lista, "E");
 
     insereRodovias(lista, "BR456");
-    insereCidades(lista, "D");
-    insereCidades(lista, "E");
-    insereCidades(lista, "F");
+    insereCidades(lista, "L");
+    insereCidades(lista, "L");
+    insereCidades(lista, "I");
 
-    insereCidade(lista, "BR123", "D"); // B
-    insereCidade(lista, "BR123", "F");
-    insereCidade(lista, "BR123", "A");
+    insereCidadeOrdem(lista, "BR123", "D"); // B
+    insereCidadeOrdem(lista, "BR123", "F");
+    insereCidadeOrdem(lista, "BR123", "A");
 
-    Lista *listaRodovias = rodoviasCidade(lista, "aaaoo"); // C
+    Lista *listaRodovias = rodoviasCidade(lista, "A"); // C
 
-    imprime(lista);
+    int cruza = cruzamento(lista, "BR123", "BR456"); // D
+    if (cruza == 0)
+        printf("Nao cruza\n");
+    else
+        printf("Cruza\n");
+
+    imprime(listaRodovias);
     system("pause");
 }
