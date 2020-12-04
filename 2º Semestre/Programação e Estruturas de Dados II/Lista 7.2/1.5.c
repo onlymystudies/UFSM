@@ -27,7 +27,7 @@ typedef struct Pilha{
 }Pilha;
 
 bool ehDigito(int caracter) {
-    for (size_t i = 0; i < 10; ++i) {
+    for (size_t i = 0; i <= 10; ++i) {
         if (caracter == i)
             return true;
     }
@@ -72,7 +72,7 @@ void imprimeDigitos(Pilha *pilha) {
     }
 }
 
-void imprimeLetras(Lista *lista) {
+void imprime(Lista *lista) {
     Pilha *pilha = criaPilha();
     No *percorre = lista->inicio;
     while (percorre) {
@@ -95,6 +95,6 @@ int main(void) {
     insere(lista, 3);
     insere(lista, 'd');
     insere(lista, 4);
-    imprimeLetras(lista);
+    imprime(lista);
     system("pause");
 }
