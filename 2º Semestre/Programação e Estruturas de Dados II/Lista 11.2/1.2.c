@@ -93,16 +93,15 @@ void dfsR( Graph G)
 {
     printf("Tempo inicial %d\n", G->V);
     int tempoFinal = 0;
-    link b;
-    size_t i;
-    for (i = 0; i < G->V; ++i) {
+    for (size_t i = 0; i < G->V; ++i) {
         for (link a = G->adj[i]; a != NULL; a = a->next) {
             tempoFinal++;
-            printf(GREY "%d GREY\n" RESET, a->w);
+            printf(GREY "%d GREY " RESET, a->w);
         }
-        b = G->adj[i];
+        puts("");
+        link b = G->adj[i];
         while (b) {
-            printf(BLACK "%d BLACK\n" RESET, b->w);
+            printf(BLACK "%d BLACK " RESET, b->w);
             b = b->next;
         }
     }
