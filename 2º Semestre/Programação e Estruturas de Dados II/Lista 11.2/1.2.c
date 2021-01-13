@@ -6,7 +6,6 @@ tempo final) e pinte os nodos de branco, cinza e preto, conforme realiza a busca
 aula. */
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <windows.h>
 /* Vértices de grafos são representados por objetos do tipo vertex. */
 #define vertex int
@@ -92,22 +91,25 @@ vértices já descobertos. A função atribui cnt+k a pre[x] se x é o k-ésimo 
 representado por listas de adjacência.) */
 void dfsR( Graph G)
 {
+    printf("Tempo inicial %d\n", G->V);
+    int tempoFinal = 0;
     link b;
     size_t i;
     for (i = 0; i < G->V; ++i) {
-        for (link a = G->adj[i]; a != NULL; a = a->next)
+        for (link a = G->adj[i]; a != NULL; a = a->next) {
+            tempoFinal++;
             printf(GREY "%d GREY\n" RESET, a->w);
+        }
         b = G->adj[i];
         while (b) {
             printf(BLACK "%d BLACK\n" RESET, b->w);
             b = b->next;
         }
     }
+    printf("Tempo final %d\n", G->V + tempoFinal);
 }
 
 int main() {
-    clock_t clockTime;
-
     DWORD mode;
     GetConsoleMode(GetStdHandle(STD_OUTPUT_HANDLE), &mode);
     SetConsoleMode(GetStdHandle(STD_OUTPUT_HANDLE), mode |= 0x0004);
@@ -145,8 +147,6 @@ int main() {
     GRAPHinsertArc(G, 2, 4);
     GRAPHinsertArc(G, 2, 5);
     GRAPHdfs(G);
-    clockTime = clock();
-    printf("CPU time: %f seconds\n", (float) clockTime / CLOCKS_PER_SEC);
     system("pause");
     //void GRAPHremoveArc( Graph G, vertex v, vertex w); // implementar
     //void GRAPHshow( Graph G); // implementar
