@@ -117,9 +117,9 @@ void dijkstra(Graph *graph, int vertex, int *prior, double *distance) {
 int main(void) {
     Graph *graph = init(15);
     insert(graph, 0, 1, "Frederico", "Palmeira", 66);
-    insert(graph, 0, 2, "Frederico", "Sarandi", 88); // 0 - 1// 0 - 2
+    insert(graph, 0, 2, "Frederico", "Sarandi", 88);
     insert(graph, 1, 3, "Palmeira", "Panambi", 51.5);
-    insert(graph, 2, 4, "Sarandi", "Carazinho", 45); // 1 - 3
+    insert(graph, 2, 4, "Sarandi", "Carazinho", 45);
     insert(graph, 3, 6, "Panambi", "Cruz Alta", 45.7);
     insert(graph, 4, 5, "Carazinho", "Passo Fundo", 48.1);
     insert(graph, 4, 10, "Carazinho", "Soledade", 76.7);
@@ -132,21 +132,16 @@ int main(void) {
     insert(graph, 11, 12, "Guapore", "Lajeado", 88.8);
     insert(graph, 12, 13, "Lajeado", "Canoas", 106.1);
     insert(graph, 13, 14, "Canoas", "Porto Alegre", 18.1);
-    GRAPHshow(graph);       puts("");
-    GRAPHshowAll(graph);    puts("");
 
     double distance[1000];
     int prior[1000];
-    //graph->numberOfCities
-
     dijkstra(graph, 0, prior, distance);
 
     printf("Distancia de Frederico ate Porto Alegre %.2f km\n", distance[graph->numberOfCities - 1]);
-
+    puts("Rota com menor Km e com menos cidades:");
     for (size_t v = 1; v < graph->numberOfCities; ++v)
         if (v == 2 || v == 4 || v == 10 || v == 12 || v == 13 || v == 14)
             printf("de %s para %s %.2f km\n", search(graph, prior[v]), search(graph, v), distance[v]);
-
     system("pause");
     return 0;
 }
