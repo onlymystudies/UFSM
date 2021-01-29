@@ -1,5 +1,4 @@
 /* Semana 14 - Lista 14-1 de exercícios de Programação e Estruturas de Dados II */
-#include <stdio.h>
 #include <stdlib.h>
 
 struct arvgen {
