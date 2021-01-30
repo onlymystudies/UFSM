@@ -32,7 +32,7 @@ Arv *cria_abp(Arv *a, char c) {
     a->esq = a->dir = NULL;
     return a;
   }
-  else if (a->info > c)
+  else if (a->info < c)
     a->esq = cria_abp(a->esq, c);
   else
     a->dir = cria_abp(a->dir, c);
